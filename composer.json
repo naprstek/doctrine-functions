@@ -1,0 +1,31 @@
+{
+    "name": "naprstek/DoctrineFunctions",
+    "type": "library",
+    "description": "A set of User Defined Functions to Doctrine 2, basically for MSSQL.",
+    "keywords": ["doctrine", "orm", "database", "mssql"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {"name": "Vladimir Naprstek", "email": "vladimir.naprstek@gmail.com"}
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "doctrine/doctrine-orm-module": "^1.1",
+        "phpunit/phpunit": "^6.5",
+        "symfony/yaml": "^4.0"
+    },
+    "suggest": {
+    },
+    "autoload": {
+        "psr-4": {"DoctrineFunctions\\" : "src/"}
+    },
+    "autoload-dev": {
+        "psr-4": { "DoctrineFunctions\\Tests\\": "tests/" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0"
+        }
+    }
+}

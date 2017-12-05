@@ -1,0 +1,5 @@
+doctrine:
+     orm:
+         dql:
+             string_functions:
+                 format: DoctrineFunctions\Query\Mssql\Format
