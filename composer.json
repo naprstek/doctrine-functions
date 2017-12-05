@@ -1,5 +1,5 @@
 {
-    "name": "naprstek/DoctrineFunctions",
+    "name": "naprstek/doctrine-functions",
     "type": "library",
     "description": "A set of User Defined Functions to Doctrine 2, basically for MSSQL.",
     "keywords": ["doctrine", "orm", "database", "mssql"],
