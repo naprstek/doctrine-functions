@@ -3,3 +3,9 @@ doctrine:
          dql:
              string_functions:
                  format: DoctrineFunctions\Query\Mssql\Format
+                 isnull: DoctrineFunctions\Query\Mssql\IsNull
+             datetime_functions:
+                 getdate: DoctrineFunctions\Query\Mssql\GetDate
+                 month: DoctrineFunctions\Query\Mssql\Month
+                 year: DoctrineFunctions\Query\Mssql\Year
+                 

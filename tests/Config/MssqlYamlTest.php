@@ -19,7 +19,8 @@ class MssqlConfigTest extends \PHPUnit\Framework\TestCase
 
         $config = $yaml->parse(file_get_contents(__DIR__ . '/../../config/mssql.yml'));
         $this->functions = array_merge(
-            $config['doctrine']['orm']['dql']['string_functions']
+            $config['doctrine']['orm']['dql']['string_functions'],
+            $config['doctrine']['orm']['dql']['datetime_functions']
         );
     }
 
