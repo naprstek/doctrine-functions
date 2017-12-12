@@ -1,9 +1,8 @@
 <?php
-
 /**
- * Class Month
+ * Class Cast
  *
- * Funkce MONTH() pro použití v DQL
+ * Funkce CAST() pro použití v DQL
  *
  * @category   Doctrine
  * @package    Query
@@ -17,27 +16,26 @@ namespace DoctrineFunctions\Query\Mssql;
 
 use Doctrine\ORM\Query\AST\Functions\FunctionNode,
     Doctrine\ORM\Query\Lexer,
-    Doctrine\ORM\Query\SqlWalker,
-    Doctrine\ORM\Query\Parser;
+    Doctrine\ORM\Query\SqlWalker;
 
-class IsNull extends FunctionNode
+class Cast extends FunctionNode
 {
-    private $check;
-    private $replacement;
 
-    public function getSql(SqlWalker $sqlWalker)
-    {
-        return sprintf('IsNull(%s, %s)', $this->check->dispatch($sqlWalker), $this->replacement->dispatch($sqlWalker));
-    }
+    public $value = null;
+    public $format = null;
 
-    public function parse(Parser $parser)
+    public function parse(\Doctrine\ORM\Query\Parser $parser)
     {
         $parser->match(Lexer::T_IDENTIFIER);
         $parser->match(Lexer::T_OPEN_PARENTHESIS);
-        $this->check = $parser->ArithmeticPrimary();
+        $this->value = $parser->ArithmeticExpression();
         $parser->match(Lexer::T_COMMA);
-        $this->replacement = $parser->ArithmeticPrimary();
+        $this->format = $parser->StringPrimary();
         $parser->match(Lexer::T_CLOSE_PARENTHESIS);
     }
 
+    public function getSql(SqlWalker $sqlWalker)
+    {
+        return sprintf('CAST(%s as %s)', $this->value->dispatch($sqlWalker), substr($this->format->dispatch($sqlWalker), 1, -1));
+    }
 }

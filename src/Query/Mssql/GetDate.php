@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class MonthFunction
+ * Class GetDate
  *
  * Funkce MONTH() pro použití v DQL
  *

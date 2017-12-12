@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Class MonthFunction
+ * Class Year
  *
- * Funkce MONTH() pro použití v DQL
+ * Funkce Year() pro použití v DQL
  *
  * @category   Doctrine
  * @package    Query

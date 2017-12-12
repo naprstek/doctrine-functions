@@ -9,7 +9,7 @@ The namespace were preserved as they are in DoctrineExtensions, so those two lib
 
 | DB | Functions |
 |:--:|:---------:|
-| MSSQL | `FORMAT, ISNULL, GETDATE, MONTH, YEAR` |
+| MSSQL | `CAST, FORMAT, ISNULL, GETDATE, MONTH, YEAR` |
 
 Installation
 ------------

@@ -24,4 +24,14 @@ class StringTest extends \DoctrineFunctions\Tests\Query\MssqlTestCase
 
         $this->assertEquals($sql, $q->getSql());
     }
+
+    public function testCast()
+    {
+        $dql = "SELECT CAST(p.id, 'int') FROM DoctrineFunctions\Tests\Entities\Blank p";
+        $q = $this->entityManager->createQuery($dql);
+
+        $sql = "SELECT CAST(b0_.id as int) AS sclr_0 FROM Blank b0_";
+
+        $this->assertEquals($sql, $q->getSql());
+    }
 }

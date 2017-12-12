@@ -2,6 +2,7 @@ doctrine:
      orm:
          dql:
              string_functions:
+                 cast: DoctrineFunctions\Query\Mssql\Cast
                  format: DoctrineFunctions\Query\Mssql\Format
                  isnull: DoctrineFunctions\Query\Mssql\IsNull
              datetime_functions:
