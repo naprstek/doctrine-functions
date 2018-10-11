@@ -21,8 +21,8 @@ use Doctrine\ORM\Query\AST\Functions\FunctionNode,
 class Cast extends FunctionNode
 {
 
-    public $value = null;
-    public $format = null;
+    private $value = null;
+    private $format = null;
 
     public function parse(\Doctrine\ORM\Query\Parser $parser)
     {

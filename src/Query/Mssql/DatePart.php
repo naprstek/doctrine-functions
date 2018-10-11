@@ -2,7 +2,7 @@
 /**
  * Class DatePart
  *
- * Funkce MONTH() pro použití v DQL
+ * Funkce DATEPOART() pro použití v DQL
  *
  * @category   Doctrine
  * @package    Query
@@ -21,22 +21,21 @@ use Doctrine\ORM\Query\AST\Functions\FunctionNode,
 class DatePart extends FunctionNode
 {
 
-    public $value = null;
-    public $part = null;
+    private $value = null;
+    private $part = null;
 
     public function parse(\Doctrine\ORM\Query\Parser $parser)
     {
         $parser->match(Lexer::T_IDENTIFIER);
         $parser->match(Lexer::T_OPEN_PARENTHESIS);
-        $parser->match(Lexer::T_IDENTIFIER);
-        $this->part = $parser->ArithmeticExpressio();
+        $this->part = $parser->StringPrimary();
         $parser->match(Lexer::T_COMMA);
-        $this->value = $parser->StringPrimary();
+        $this->value = $parser->ArithmeticExpression();
         $parser->match(Lexer::T_CLOSE_PARENTHESIS);
     }
 
     public function getSql(SqlWalker $sqlWalker)
     {
-        return sprintf('DATEPART(%s, %s)', $this->part->dispatch($sqlWalker), $this->value->dispatch($sqlWalker));
+        return sprintf('DATEPART(%s, %s)', substr($this->part->dispatch($sqlWalker), 1, -1), $this->value->dispatch($sqlWalker));
     }
 }

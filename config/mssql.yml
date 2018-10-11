@@ -9,4 +9,5 @@ doctrine:
                  getdate: DoctrineFunctions\Query\Mssql\GetDate
                  month: DoctrineFunctions\Query\Mssql\Month
                  year: DoctrineFunctions\Query\Mssql\Year
+                 datepart: DoctrineFunctions\Query\Mssql\DatePart
                  
